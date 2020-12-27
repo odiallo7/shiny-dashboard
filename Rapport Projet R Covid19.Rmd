@@ -1,0 +1,48 @@
+---
+output:
+  pdf_document: default
+  beamer_presentation:
+    theme: AnnArbor
+    colortheme: dolphin
+    fonttheme: structurebold
+---
+
+---
+title: "Rapport Projet R Covid19"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+La pandemie du coronavirus est arrivee au Sénégal au mois de Mars de 2020 et est en évolution de jusqu' à nos jours.
+
+Ainsi le ministère de la santé et de l'action sociale a mise en place une base de données regroupant des informations sur les contaminations, les décès, les guérisions. Cette base de données avec laquelle nous travaillons regroupe des données sur le nombre de cas positifs, le nombre de cas guéris, le nombre de décès durant la période de Mars Juin 2020.
+
+En tant que datascientist, notre travail réside dans l'expliquation des données sous format plus simple et plus lisible par toutes les autres personnes sans trop d'effort.
+
+## Vue d'ensemble de l'évolution du coronavirus
+
+You can also embed plots, for example:
+
+```{r echo=FALSE}
+library(dplyr)
+library(readxl)
+```
+
+aq
+```{r}
+df_covid <- read_excel("data/BaseCovidSN.xlsx", sheet = "Feuil1", range = "A1:M92")
+df_covid
+
+```
+
+
+```{r echo=FALSE}
+plot(df_covid$`Cas testes`, df_covid$`Cas positifs`)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

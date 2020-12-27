@@ -14,7 +14,7 @@ body <- dashboardBody(
   ########################
   # First tab content
   tabItem(tabName = "dashboard",
-          h2("La partie vue d'ensemble !"),
+          #h2("La partie vue d'ensemble !"),
           fluidRow(
             valueBoxOutput("valuebox_total_cases_1") %>% withSpinner(color = "#5bc0de"),
             
@@ -30,12 +30,11 @@ body <- dashboardBody(
             valueBoxOutput("valuebox_death_rate_1") %>% withSpinner(color = "#5bc0de")
           ),
           tags$br(),
+        
+          
           fluidRow(
             
-            box(plotlyOutput(outputId = "manyplot")),
-            
-          ),
-          fluidRow(
+            box(plotlyOutput(outputId = "manyplot"),width = 12),
             
             box(plotlyOutput(outputId = "subplot1")),
             box(plotlyOutput(outputId = "subplot2")),
@@ -59,9 +58,11 @@ body <- dashboardBody(
   # 2nd tab Contamination
   tabItem(
     tabName = "contaminations",
-    fluidRow(h2("La partie vue contaminations !")
-             , tags$br(),
-             tags$hr()),
+    # fluidRow(
+    #   h2("La partie vue contaminations !")
+    #          , tags$br(),
+    #          tags$hr()),
+    
     fluidRow(
       # A static valueBox
       valueBoxOutput("valuebox_total_cases") %>% withSpinner(color = "#5bc0de"),
