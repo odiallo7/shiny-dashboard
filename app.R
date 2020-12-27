@@ -6,6 +6,8 @@
 ###################
 library(shiny)
 library(shinydashboard)
+library(shinyWidgets)
+library(plotly)
 
 source('./ui.R')
 source('./server.R')
